@@ -1,4 +1,5 @@
 const Service = require('node-windows').Service
+require('dotenv').config({ path: require('path').join(__dirname, '.env') })
 
 const svc = new Service({
   name: 'OllamaProxyGateway',
@@ -7,15 +8,19 @@ const svc = new Service({
   env: [
     {
       name: 'OLLAMA_URL',
-      value: process.env.OLLAMA_URL || 'http://127.0.0.1:11434'
+      value: process.env.OLLAMA_URL
     },
     {
       name: 'PORT',
-      value: process.env.PORT || '8080'
+      value: process.env.PORT
     },
     {
       name: 'HOST',
-      value: process.env.HOST || '0.0.0.0'
+      value: process.env.HOST
+    },
+    {
+      name: 'MODEL',
+      value: process.env.MODEL
     }
   ]
 })
