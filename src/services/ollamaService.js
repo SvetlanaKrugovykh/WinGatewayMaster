@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios')
 
 module.exports = async function ({ method, url, body, headers }) {
   try {
@@ -8,9 +8,9 @@ module.exports = async function ({ method, url, body, headers }) {
       data: body,
       headers,
       validateStatus: () => true,
-    });
-    return { status: response.status, data: response.data };
+    })
+    return { status: response.status, data: response.data }
   } catch (error) {
-    return { status: 500, data: { error: error.message } };
+    return { status: 500, data: { error: error.message } }
   }
-};
+}
